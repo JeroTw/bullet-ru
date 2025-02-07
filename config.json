@@ -1,0 +1,45 @@
+{
+    "log": {
+        "level": "info"
+    },
+    "inbounds": [
+        {
+            "type": "tun",
+            "interface_name": "tun0",
+            "domain_strategy": "ipv4_only",
+            "address": [
+                "172.16.250.1/30"
+            ],
+            "auto_route": false,
+            "strict_route": false,
+            "sniff": true
+        }
+    ],
+    "outbounds": [
+        {
+            "domain_strategy": "",
+            "flow": "",
+            "packet_encoding": "",
+            "server": "ip",
+            "server_port": port,
+            "tag": "proxy",
+            "tls": {
+                "alpn": [
+                    "h3",
+                    "h2"
+                ],
+                "enabled": true,
+                "server_name": "sni",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "firefox"
+                }
+            },
+            "type": "vless",
+            "uuid": "uid"
+        }
+    ],
+    "route": {
+        "auto_detect_interface": true
+    }
+}
